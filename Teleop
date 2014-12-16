@@ -22,6 +22,17 @@ void driveLeft(){
 		motor[L] = 0;
 	}
 }
+
+// more comments
+void armMove(){
+	if(joystick.joy2_y2 < -5 || joystick.joy2_y2 > 5){
+		motor[ArmMotor] = joystick.joy2_y2*0.9;
+	}
+	else{
+		motor[ArmMotor] = 0;
+	}
+}
+
 void driveRight(){
 	if(joystick.joy1_y2 < -5 || joystick.joy1_y2 > 5){
 		motor[R] = joystick.joy1_y2*0.9;
@@ -38,14 +49,8 @@ void raiseLinearSlide(){
 		motor[LinearSlide] = 0;
 	}
 }
-void armMove(){
-	if(joystick.joy2_y2 < -5 || joystick.joy2_y2 > 5){
-		motor[ArmMotor] = joystick.joy2_y2*0.9;
-	}
-	else{
-		motor[ArmMotor] = 0;
-	}
-}
+
+//more comments
 void joint(){
 	if(joy2Btn(7) == 1 && joy2Btn(8) == 0){
 		servo[ArmJoint] += 1;
@@ -59,6 +64,28 @@ void joint(){
 		servo[ArmJoint] += 0;
 	}
 }
+
+//insertion
+
+void driveRight(){
+	if(joystick.joy1_y2 < -5 || joystick.joy1_y2 > 5){
+		motor[R] = joystick.joy1_y2*0.9;
+	}
+	else{
+		motor[R] = 0;
+	}
+}
+void raiseLinearSlide(){
+	if(joystick.joy2_y1 < -5 || joystick.joy2_y1 > 5){
+		motor[LinearSlide] = joystick.joy2_y1*0.9;
+	}
+	else{
+		motor[LinearSlide] = 0;
+	}
+}
+
+//end insertion
+
 void leeuWenHook(){
 	if(joy2Btn(5) == 1 && joy2Btn(6) == 0){
 		servo[Hook] += 1;
